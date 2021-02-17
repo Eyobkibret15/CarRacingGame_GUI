@@ -56,6 +56,12 @@ namespace CarRacingGame_GUI
             this.enemy_car2 = new System.Windows.Forms.PictureBox();
             this.enemy_car1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.total_score = new System.Windows.Forms.Label();
+            this.total_score_value = new System.Windows.Forms.Label();
+            this.restart = new System.Windows.Forms.Button();
+            this.quit = new System.Windows.Forms.Button();
+            this.gb_menu = new System.Windows.Forms.GroupBox();
+            this.gb_display = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb2)).BeginInit();
@@ -75,6 +81,8 @@ namespace CarRacingGame_GUI
             ((System.ComponentModel.ISupportInitialize)(this.enemy_car3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy_car2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy_car1)).BeginInit();
+            this.gb_menu.SuspendLayout();
+            this.gb_display.SuspendLayout();
             this.SuspendLayout();
             // 
             // pb1
@@ -127,7 +135,7 @@ namespace CarRacingGame_GUI
             this.start_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.start_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.start_button.ForeColor = System.Drawing.Color.Lime;
-            this.start_button.Location = new System.Drawing.Point(417, 76);
+            this.start_button.Location = new System.Drawing.Point(6, 19);
             this.start_button.Name = "start_button";
             this.start_button.Size = new System.Drawing.Size(75, 31);
             this.start_button.TabIndex = 6;
@@ -145,7 +153,7 @@ namespace CarRacingGame_GUI
             this.stop_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.stop_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.stop_button.ForeColor = System.Drawing.Color.Red;
-            this.stop_button.Location = new System.Drawing.Point(418, 118);
+            this.stop_button.Location = new System.Drawing.Point(6, 63);
             this.stop_button.Name = "stop_button";
             this.stop_button.Size = new System.Drawing.Size(75, 29);
             this.stop_button.TabIndex = 6;
@@ -162,7 +170,7 @@ namespace CarRacingGame_GUI
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.Yellow;
-            this.label1.Location = new System.Drawing.Point(539, 84);
+            this.label1.Location = new System.Drawing.Point(134, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 16);
             this.label1.TabIndex = 10;
@@ -173,7 +181,7 @@ namespace CarRacingGame_GUI
             this.score_display.AutoSize = true;
             this.score_display.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.score_display.ForeColor = System.Drawing.Color.Transparent;
-            this.score_display.Location = new System.Drawing.Point(539, 100);
+            this.score_display.Location = new System.Drawing.Point(153, 43);
             this.score_display.Name = "score_display";
             this.score_display.Size = new System.Drawing.Size(16, 16);
             this.score_display.TabIndex = 11;
@@ -210,7 +218,7 @@ namespace CarRacingGame_GUI
             // star
             // 
             this.star.Image = ((System.Drawing.Image)(resources.GetObject("star.Image")));
-            this.star.Location = new System.Drawing.Point(226, 244);
+            this.star.Location = new System.Drawing.Point(226, 170);
             this.star.Name = "star";
             this.star.Size = new System.Drawing.Size(30, 30);
             this.star.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -274,7 +282,7 @@ namespace CarRacingGame_GUI
             // car
             // 
             this.car.Image = ((System.Drawing.Image)(resources.GetObject("car.Image")));
-            this.car.Location = new System.Drawing.Point(201, 426);
+            this.car.Location = new System.Drawing.Point(110, 429);
             this.car.Name = "car";
             this.car.Size = new System.Drawing.Size(62, 92);
             this.car.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -284,7 +292,7 @@ namespace CarRacingGame_GUI
             // enemy_car4
             // 
             this.enemy_car4.Image = ((System.Drawing.Image)(resources.GetObject("enemy_car4.Image")));
-            this.enemy_car4.Location = new System.Drawing.Point(322, 204);
+            this.enemy_car4.Location = new System.Drawing.Point(313, 84);
             this.enemy_car4.Name = "enemy_car4";
             this.enemy_car4.Size = new System.Drawing.Size(50, 90);
             this.enemy_car4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -294,7 +302,7 @@ namespace CarRacingGame_GUI
             // enemy_car3
             // 
             this.enemy_car3.Image = ((System.Drawing.Image)(resources.GetObject("enemy_car3.Image")));
-            this.enemy_car3.Location = new System.Drawing.Point(173, 282);
+            this.enemy_car3.Location = new System.Drawing.Point(210, 288);
             this.enemy_car3.Name = "enemy_car3";
             this.enemy_car3.Size = new System.Drawing.Size(46, 70);
             this.enemy_car3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -304,7 +312,7 @@ namespace CarRacingGame_GUI
             // enemy_car2
             // 
             this.enemy_car2.Image = ((System.Drawing.Image)(resources.GetObject("enemy_car2.Image")));
-            this.enemy_car2.Location = new System.Drawing.Point(106, 118);
+            this.enemy_car2.Location = new System.Drawing.Point(120, 46);
             this.enemy_car2.Name = "enemy_car2";
             this.enemy_car2.Size = new System.Drawing.Size(46, 70);
             this.enemy_car2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -315,7 +323,7 @@ namespace CarRacingGame_GUI
             // enemy_car1
             // 
             this.enemy_car1.Image = ((System.Drawing.Image)(resources.GetObject("enemy_car1.Image")));
-            this.enemy_car1.Location = new System.Drawing.Point(12, 255);
+            this.enemy_car1.Location = new System.Drawing.Point(12, 268);
             this.enemy_car1.Name = "enemy_car1";
             this.enemy_car1.Size = new System.Drawing.Size(62, 50);
             this.enemy_car1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -333,12 +341,93 @@ namespace CarRacingGame_GUI
             this.label2.TabIndex = 31;
             this.label2.Text = "WELCOME ";
             // 
+            // total_score
+            // 
+            this.total_score.AutoSize = true;
+            this.total_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.total_score.ForeColor = System.Drawing.Color.Lime;
+            this.total_score.Location = new System.Drawing.Point(17, 16);
+            this.total_score.Name = "total_score";
+            this.total_score.Size = new System.Drawing.Size(164, 31);
+            this.total_score.TabIndex = 33;
+            this.total_score.Text = "Total Score";
+            // 
+            // total_score_value
+            // 
+            this.total_score_value.AutoSize = true;
+            this.total_score_value.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.total_score_value.ForeColor = System.Drawing.Color.Yellow;
+            this.total_score_value.Location = new System.Drawing.Point(54, 47);
+            this.total_score_value.Name = "total_score_value";
+            this.total_score_value.Size = new System.Drawing.Size(103, 29);
+            this.total_score_value.TabIndex = 34;
+            this.total_score_value.Text = "SCORE";
+            // 
+            // restart
+            // 
+            this.restart.BackColor = System.Drawing.Color.Blue;
+            this.restart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.restart.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.restart.ForeColor = System.Drawing.Color.Lime;
+            this.restart.Location = new System.Drawing.Point(43, 91);
+            this.restart.Name = "restart";
+            this.restart.Size = new System.Drawing.Size(126, 50);
+            this.restart.TabIndex = 35;
+            this.restart.TabStop = false;
+            this.restart.Text = "Restart";
+            this.restart.UseVisualStyleBackColor = false;
+            this.restart.Click += new System.EventHandler(this.restart_Click);
+            // 
+            // quit
+            // 
+            this.quit.BackColor = System.Drawing.Color.Blue;
+            this.quit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.quit.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.quit.ForeColor = System.Drawing.Color.Red;
+            this.quit.Location = new System.Drawing.Point(56, 161);
+            this.quit.Name = "quit";
+            this.quit.Size = new System.Drawing.Size(101, 42);
+            this.quit.TabIndex = 36;
+            this.quit.TabStop = false;
+            this.quit.Text = "Quit";
+            this.quit.UseVisualStyleBackColor = false;
+            this.quit.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // gb_menu
+            // 
+            this.gb_menu.Controls.Add(this.quit);
+            this.gb_menu.Controls.Add(this.total_score);
+            this.gb_menu.Controls.Add(this.total_score_value);
+            this.gb_menu.Controls.Add(this.restart);
+            this.gb_menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.gb_menu.Location = new System.Drawing.Point(400, 143);
+            this.gb_menu.Name = "gb_menu";
+            this.gb_menu.Size = new System.Drawing.Size(221, 208);
+            this.gb_menu.TabIndex = 37;
+            this.gb_menu.TabStop = false;
+            this.gb_menu.Text = "MENU";
+            // 
+            // gb_display
+            // 
+            this.gb_display.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.gb_display.Controls.Add(this.stop_button);
+            this.gb_display.Controls.Add(this.start_button);
+            this.gb_display.Controls.Add(this.label1);
+            this.gb_display.Controls.Add(this.score_display);
+            this.gb_display.Location = new System.Drawing.Point(400, 12);
+            this.gb_display.Name = "gb_display";
+            this.gb_display.Size = new System.Drawing.Size(200, 100);
+            this.gb_display.TabIndex = 38;
+            this.gb_display.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Blue;
             this.ClientSize = new System.Drawing.Size(684, 521);
+            this.Controls.Add(this.gb_display);
+            this.Controls.Add(this.gb_menu);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.enemy_car1);
             this.Controls.Add(this.enemy_car2);
@@ -355,10 +444,6 @@ namespace CarRacingGame_GUI
             this.Controls.Add(this.dimond);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.score_display);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.stop_button);
-            this.Controls.Add(this.start_button);
             this.Controls.Add(this.pb5);
             this.Controls.Add(this.pb2);
             this.Controls.Add(this.pb4);
@@ -390,6 +475,10 @@ namespace CarRacingGame_GUI
             ((System.ComponentModel.ISupportInitialize)(this.enemy_car3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy_car2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy_car1)).EndInit();
+            this.gb_menu.ResumeLayout(false);
+            this.gb_menu.PerformLayout();
+            this.gb_display.ResumeLayout(false);
+            this.gb_display.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -422,6 +511,12 @@ namespace CarRacingGame_GUI
         private System.Windows.Forms.PictureBox enemy_car2;
         private System.Windows.Forms.PictureBox enemy_car1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label total_score;
+        private System.Windows.Forms.Label total_score_value;
+        private System.Windows.Forms.Button restart;
+        private System.Windows.Forms.Button quit;
+        private System.Windows.Forms.GroupBox gb_menu;
+        private System.Windows.Forms.GroupBox gb_display;
     }
 }
 

@@ -15,6 +15,7 @@ namespace CarRacingGame_GUI
         protected static int enemy_car_speed_boost { get; set; }
         protected static int speed_check { get; set; }
         protected static int speed_boost { get; set; }
+        protected static int left_value { get; set; }
 
         Random rand = new Random();
         public Form1()
@@ -24,6 +25,8 @@ namespace CarRacingGame_GUI
             speed_boost = 5;
             enemy_car_speed_boost = -5;
             speed_check = 1000;
+            gb_menu.Hide();
+            gb_display.Show();
             label2.Visible = false;
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -33,7 +36,10 @@ namespace CarRacingGame_GUI
             {
                 label2.Text = "GAME OVER";
                 label2.Visible = true;
-                timer1.Enabled = false;
+                timer1.Stop();
+                total_score_value.Text = score_value.ToString();
+                gb_menu.Show();
+                gb_display.Hide();
             }
             if(car.Bounds.IntersectsWith(star.Bounds))
             {
@@ -51,14 +57,37 @@ namespace CarRacingGame_GUI
             Speed_Control();
             if(speed_boost < 0 )
             {
-                speed_boost = 0;             
+                
+                speed_boost = 0;
+                left_value = 0;
             }
             Speed(speed_boost, enemy_car_speed_boost);
-            if(speed_boost > 0)
+            if(speed_boost > 0 && speed_boost <=5)
             {
                 score_value += 1;
+                left_value = 5;
             }
-           
+            else if (speed_boost > 5 && speed_boost <= 10)
+            {
+                score_value += 2;
+                left_value = 7;
+            }
+            else if (speed_boost > 10 && speed_boost <= 15)
+            {
+                score_value += 3;
+                left_value =10;
+            }
+            else if (speed_boost > 15 && speed_boost <= 20)
+            {
+                score_value += 4;
+                left_value = 15;
+            }
+            else if (speed_boost > 20 )
+            {
+                score_value += 5;
+                left_value = 20;
+            }
+
 
         }
         void Speed_Control()
@@ -204,18 +233,18 @@ namespace CarRacingGame_GUI
             {
                 if (e.KeyCode == Keys.Left)
                 {
-                    if(car.Left > 10)
+                    if(car.Left > 12)
                     {
-                        car.Left -= 5;
+                        car.Left -= left_value;
                     }
                     
                 }
                 if (e.KeyCode == Keys.Right)
 
                 {
-                    if (car.Left < 330)
+                    if (car.Left < 316)
                     {
-                        car.Left += 5;
+                        car.Left += left_value;
                     }
                 }
                 if (e.KeyCode == Keys.Up)
@@ -285,6 +314,28 @@ namespace CarRacingGame_GUI
         private void enemy_car2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void restart_Click(object sender, EventArgs e)
+        {
+            timer1_Tick();
+            car.Location = new Point(110, 429);
+            enemy_car1.Location = new Point(12, 268);
+            enemy_car2.Location = new Point(120, 46);
+            enemy_car3.Location = new Point(210, 288);
+            enemy_car4.Location = new Point(313, 84);
+            score_value = 0;
+            speed_boost = 5;
+            enemy_car_speed_boost = -5;
+            speed_check = 1000;
+            gb_menu.Hide();
+            gb_display.Show();
+            label2.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }   
 }
